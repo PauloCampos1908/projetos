@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-image: url('../imagens/fundo.jpg');
+  background-size: cover; 
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 50px;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255,255,255, 0.8); 
+  font-size: 1.2em;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  margin: 0 0 30px;
+  border-radius: 5px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; /* Adiciona espaço superior ao grid */
+}
+
+.card {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  background: greenyellow;
+  border-radius: 8px; /* Suaviza as bordas */
+  position: relative;
+  transition: transform 0.4s ease, opacity 0.3s ease; /* Transições mais fluidas */
+  transform-style: preserve-3d;
+  cursor: pointer;
+  background-color: #32CD32;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Evita que ambas as faces sejam visíveis ao mesmo tempo */
+  transition: transform 0.4s ease; /* Suaviza a rotação */
+}
+
+.front {
+  background-image: url('../imagens/bebe.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg); /* Esconde inicialmente a frente */
+}
+
+.back {
+  background-image: url('../imagens/costas.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.reveal-card {
+  transform: rotateY(180deg); /* Revela a carta */
+}
+
+.disabled-card {
+  filter: saturate(0);
+  opacity: 0.6; /* Deixa a carta parcialmente visível */
+  cursor: default; /* Remove o indicador de clique */
+  pointer-events: none; /* Evita que cartas desabilitadas sejam clicadas */
+}
